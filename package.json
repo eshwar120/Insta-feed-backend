@@ -1,0 +1,35 @@
+{
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-body-parser-error-handler": "^1.0.4",
+    "jest": "^29.5.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.2.1"
+  },
+  "name": "insta-clone-back-end",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eshwar120/Insta-clone-back-end.git"
+  },
+  "author": "Eshwaramahendra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eshwar120/Insta-clone-back-end/issues"
+  },
+  "homepage": "https://github.com/eshwar120/Insta-clone-back-end#readme"
+}
