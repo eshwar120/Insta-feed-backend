@@ -5,14 +5,16 @@ const mongoose = require('mongoose');
 const connectDB = require('./config/connectDB');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+// const multer = require('multer');
 const postData = require('./routes/post');
 const postRoute = require('./routes/post');
 const userRoute = require('./routes/user');
+const uploadController = require('./controller/upload');
 require('dotenv').config();
-express()
+express();
 
 //using port variable from env - which hosting address
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 //creating app from express
 const app = express();
@@ -25,15 +27,25 @@ app.use(bodyPraser.urlencoded({extended : false}));
 app.use(bodyPraser.json());
 app.use(bodyParserErrorHandler());
 
-//using cors
-app.use(cors())
-
 //using cookie-parser
-app.use(cookieParser())
+app.use(cookieParser());
+
+//using cors
+app.use(cors());
 
 //connect to database
 connectDB();
 
+// const storage = multer.diskStorage ({
+//     destination : (req, file, cb) => {
+//         cb(null , '/uploads');
+//     },
+//     filename : (req, file , cb) => {
+//         cb(null , `${file.originalname} - ${new Date()}`);
+//     }
+// });
+
+// app.use('/posts/createPost' , uploadController)
 app.use('/posts', postRoute);
 app.use('/users' , userRoute);
 
@@ -52,4 +64,8 @@ mongoose.connection.once('open' , () => {
     app.listen(PORT , () => {
         console.log(`server is running on ${PORT}`);
     });
-})
+});
+
+// module.exports = {
+//     upload
+// }
