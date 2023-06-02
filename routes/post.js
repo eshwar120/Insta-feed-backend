@@ -9,7 +9,7 @@ const fs = require('fs');
 postRoute.get("", async (req, res) => {
     // console.log(req.error.message);
     try {
-        const postData = await Post.find({ date: { $sort: 1 } });
+        const postData = await Post.find().sort({date : -1});
         if (postData) {
             return res.status(200).json({
                 status: "successful",
