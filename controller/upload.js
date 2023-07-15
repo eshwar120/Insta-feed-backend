@@ -47,18 +47,18 @@ uploadController.post('', upload.single("postImage"), async (req, res) => {
             const data = await post.save();
             if (data) {
                 return res.status(201).json({
-                    status: "success",
+                    message: "success",
                     result: data,
                 });
             }
             res.status(400).json({
-                status: "failed",
+                message: "failed",
             });
         }
     }
     catch (err) {
         // console.log(err)
-        return res.status(500).json({ "status": err.message })
+        return res.status(500).json({ "message": err.message })
     }
 });
 
